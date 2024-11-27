@@ -1,0 +1,19 @@
+def impedance_series(*impedances):
+# Calcula a imped^ancia equivalente em s´erie.
+  return sum(impedances)
+def impedance_parallel(*impedances):
+# Calcula a imped^ancia equivalente em paralelo.
+  total_reciprocal = sum(1 / z for z in impedances)
+  return 1 / total_reciprocal
+# Exemplo do problema:
+# Duas imped^ancias em s´erie: Z1 = 10 + 10j e Z2 = 20 + 20j
+# Estas duas em paralelo com Z3 = 30 + 30j
+Z1 = 10 + 10j
+Z2 = 20 + 20j
+Z3 = 30 + 30j
+# Imped^ancia em s´erie
+Z_series = impedance_series(Z1, Z2)
+# Imped^ancia total em paralelo
+Z_equivalent = impedance_parallel(Z_series, Z3)
+# Resultado
+Z_series, Z_equivalent
